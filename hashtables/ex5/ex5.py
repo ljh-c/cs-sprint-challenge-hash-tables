@@ -4,9 +4,22 @@
 
 def finder(files, queries):
     """
-    YOUR CODE HERE
+    Hash each path: file as key and path as value
     """
-    # Your code here
+    paths = {}
+    result = []
+
+    for path in files:
+        name = path.split('/')[-1]
+
+        if name not in paths:
+            paths[name] = []
+
+        paths[name].append(path)
+    
+    for query in queries:
+        if query in paths:
+            result.extend(paths[query])
 
     return result
 
