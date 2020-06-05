@@ -1,8 +1,15 @@
 def has_negatives(a):
     """
-    YOUR CODE HERE
+    Hash each number: number as key and counterpart as value
     """
-    # Your code here
+    seen = {}
+    result = []
+
+    for num in a:
+        if -num in seen:
+            result.append(abs(num))
+        else:
+            seen[num] = None
 
     return result
 
