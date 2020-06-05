@@ -8,7 +8,7 @@ def reconstruct_trip(tickets, length):
     """
     Hash each ticket: source as key and destination as value
     """
-    route = []
+    route = [None] * length
     trips = {}
 
     for ticket in tickets:
@@ -17,11 +17,11 @@ def reconstruct_trip(tickets, length):
         
         trips[ticket.source] = ticket.destination
 
-    route = [start.destination]
+    route[0] = start.destination
 
     for i in range(1, length):
         source = route[i - 1]
 
-        route.append(trips[source])
+        route[i] = trips[source]
 
     return route

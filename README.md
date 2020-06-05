@@ -23,11 +23,46 @@ Commit your code regularly and meaningfully. This practice helps both you (in ca
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your answers beforehand.
 
 1. Hashing functions
+
+Hash functions should:
+- Take any data as input and output a number
+- Be a pure function or consistent / deterministic e.g. for the same input, return the same output
+- Return numbers in a specific range (to minimize collisions)
+
 2. Collision resolution
+
+Open addressing with linear probing
+- On encountering a collision, iterate through the buckets until an empty slot is found (loop back to beginning if needed)
+- Problem with linear probing is that it causes clustering: with collisions in the same area of the table, more items group around that one area instead of evenly distributing
+- Quadratic probing skips slots to minimize clustering
+Chaining
+- Each bucket is a reference to a chain or linked list of items
+- Compared to linear probing, on average, each bucket is likely to have fewer items
+
 3. Performance of basic hash table operations
+
+- On average, search, insert, and delete is `O(1)` and `O(n)` at worst
+- In the worst case, close to all values are hashed to the same index
+- Hash tables trade space for time
+
 4. Load factor
+
+- Load factor = number of items in hash table / number of buckets
+- Max load factor for linear probing is 1
+- Max load factor for chaining can be greater than 1
+
 5. Automatic resizing
+
+- Automatic resizing can improve performance of hash table, and done when load factor is too big or small
+- Generally: double when load factor is > 0.7 or halve when when around 0.2
+- Create a new hash table, then rehash all elements to the new table
+
 6. Various use cases for hash tables
+
+Hash tables can be used if quick access is needed.
+- Lookups: map one thing to another thing
+- Duplicate prevention: check if a thing has already been recorded
+- Caching: save results of expensive computations
 
 We expect you to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
